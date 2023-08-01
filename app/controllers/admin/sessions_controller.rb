@@ -9,9 +9,9 @@ class Admin::SessionsController < Devise::SessionsController
    end
 
   # POST /resource/sign_in
-   def create
+  # def create
   #   super
-   end
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -18,12 +18,11 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdraw
-    @customer = current_customer
-    @customer.withdrawal_status = true
-    if @customer.save
-      reset_session
-      redirect_to root_path
-    end
+    @customer = Customer.find(current_customer.id)
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行しました"
+    redirect_to root_path
   end
   
 end
