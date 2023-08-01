@@ -1,0 +1,34 @@
+<h2>商品新規登録</h2>
+  <div>
+  <table>
+    <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+      <tr>
+        <div>
+          <th></th>
+          <td></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <th><%= f.label :商品名 %></th>
+          <td><%= f.text_field :name, placeholder:"商品名" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <th><%= f.label :商品説明 %></th>
+          <td><%= f.text_area :introduction, placeholder:"商品紹介" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <th><%= f.label :税抜価格 %></th>
+          <td><%= f.text_field :price, placeholder:"税抜価格" %></td>
+        </div>
+      </tr>
+      <div>
+        <th><%= f.submit "新規登録" %></th>
+      </div>
+    <% end %>
+  </table>
+  </div>

@@ -1,8 +1,4 @@
 class Admin::ItemsController < ApplicationController
-  
-  def index
-    @items = Item.all
-  end
 
   def new
     @item = Item.new
@@ -17,6 +13,10 @@ class Admin::ItemsController < ApplicationController
       flash.now[:danger] = "商品の新規登録内容に不備があります。"
       render :new
     end
+  end
+  
+  def index
+    @items = Item.all
   end
 
   def show
