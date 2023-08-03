@@ -3,7 +3,7 @@
 <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
   <div>
     <label for="inpuimage">商品画像</label>
-    <%= f.file_field :image, accept: "image", autofocus: true, id:"inputlast_image" %>
+    <%= f.file_field :image, accept: "image", autofocus: true, id:"inputimage" %>
   </div>
   <div>
     <label for="inputname">商品名</label>
