@@ -1,34 +1,23 @@
 <h2>商品新規登録</h2>
-  <div>
-  <table>
-    <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
-      <tr>
-        <div>
-          <th><%= f.label :商品画像 %></th>
-          <th><%= f.file_field :image, accept: "image" %></th>
-        </div>
-      </tr>
-      <tr>
-        <div>
-          <th><%= f.label :商品名 %></th>
-          <td><%= f.text_field :name, placeholder:"商品名" %></td>
-        </div>
-      </tr>
-      <tr>
-        <div>
-          <th><%= f.label :商品説明 %></th>
-          <td><%= f.text_area :introduction, placeholder:"商品説明" %></td>
-        </div>
-      </tr>
-      <tr>
-        <div>
-          <th><%= f.label :税抜価格 %></th>
-          <td><%= f.text_field :price, placeholder:"税抜価格" %></td>
-        </div>
-      </tr>
-      <div>
-        <th><%= f.submit "新規登録" %></th>
-      </div>
-    <% end %>
-  </table>
-  </div>
+
+  <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+    <div>
+      <label for="item_image">商品画像</label>
+      <%= f.file_field :image, accept: "image" %>
+    </div>
+    <div>
+      <label for="item_name">商品名</label>
+      <%= f.text_field :name, placeholder:"商品名" %>
+    </div>
+    <div>
+      <label for="item_introduction">商品説明</label>
+      <%= f.text_area :introduction, placeholder:"商品説明" %>
+    </div>
+    <div>
+      <label for="item_price">税抜価格</label>
+      <%= f.text_field :price, placeholder:"税抜価格" %>
+    </div>
+    <div>
+      <%= f.submit "新規登録" %>
+    </div>
+  <% end %>

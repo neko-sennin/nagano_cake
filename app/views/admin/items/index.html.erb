@@ -22,8 +22,8 @@
             <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
         </td>
-        <td><%= @items.name %></td>
-        <td><%= @items.price %></td>
+        <td><%= link_to item.name, admin_item_path(item.id) %></td>
+        <td><%= item.price %></td>
       </tr>
     </tbody>
   </table>

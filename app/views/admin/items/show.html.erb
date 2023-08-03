@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <% if item.image.attached? %>
-      <%= image_tag item.image, size: "200x200" %>
+    <% if @item.image.attached? %>
+      <%= image_tag @item.image, size: "200x200" %>
     <% else %>
       <%= image_tag 'no_image', size: "200x200" %>
     <% end %>
@@ -18,7 +18,7 @@
   </tr>
   <tr>
     <th>税込価格</th>
-    <td><%= @item.price %</td>
+    <td><%= @item.price %></td>
   </tr>
 </table>
 
