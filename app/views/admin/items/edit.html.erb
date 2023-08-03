@@ -1,33 +1,23 @@
 <h2>商品編集</h2>
 
-<table>
-  <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
-    <tr>
-      <div>
-        <label for="inpuimage">商品画像</label>
-      　<%= f.file_field :image, accept: "image", autofocus: true, id:"inputlast_image" %>
-      </div>
-    </tr>
-    <tr>
-      <div>
-        <label for="inputname">商品名</label>
-        <%= f.text_field :name, autofocus: true, id:"inputlast_name"%>
-      </div>
-    </tr>
-    <tr>
-      <div>
-        <label for="inputintroduction">商品説明</label>
-        <%= f.text_area :introduction, autofocus: true, id:"inputintroduction" %>
-      </div>
-    </tr>
-    <tr>
-      <div>
-        <label for="inputprice">税抜価格</label>
-        <p><%= f.text_field :price, autofocus: true, id:"inputprice" %>円</p>
-      </div>
-    </tr>
-    <div>
-      <th><%= f.submit "変更を保存" %></th>
-    </div>
-  <% end %>
-</table>
+<%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+  <div>
+    <label for="inpuimage">商品画像</label>
+    <%= f.file_field :image, accept: "image", autofocus: true, id:"inputlast_image" %>
+  </div>
+  <div>
+    <label for="inputname">商品名</label>
+    <%= f.text_field :name, autofocus: true, id:"inputlast_name"%>
+  </div>
+  <div>
+    <label for="inputintroduction">商品説明</label>
+    <%= f.text_area :introduction, autofocus: true, id:"inputintroduction" %>
+  </div>
+  <div>
+    <label for="inputprice">税抜価格</label>
+    <%= f.text_field :price, autofocus: true, id:"inputprice" %>
+  </div>
+  <div>
+    <%= f.submit "変更を保存" %>
+  </div>
+<% end %>

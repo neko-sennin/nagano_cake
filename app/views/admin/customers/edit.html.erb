@@ -1,6 +1,5 @@
 <h2>
-  <%= @customer.last_name + @customer.first_name %>
-  さんの会員情報編集
+  <%= @customer.last_name + @customer.first_name %>さんの会員情報編集
 </h2>
 
 <%= form_with model: @customer,url: customers_path,method: :patch do |f| %>

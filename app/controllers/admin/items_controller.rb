@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-
+  
   def new
     @item = Item.new
   end
@@ -7,10 +7,10 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash.now[:success] = "商品の新規登録が完了しました。"
-      redirect_to admin_item_path(@item)
+      flash[:notice] = "商品の新規登録が完了しました。"
+      redirect_to admin_items_path
     else
-      flash.now[:danger] = "商品の新規登録内容に不備があります。"
+      flash.now[:alert] = "商品の新規登録内容に不備があります。"
       render :new
     end
   end
@@ -18,11 +18,11 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
   end
-
+  
   def show
     @item = Item.find(params[:id])
   end
-
+  
   def edit
      @item = Item.find(params[:id])
   end
