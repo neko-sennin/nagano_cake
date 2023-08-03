@@ -4,8 +4,8 @@
     <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
       <tr>
         <div>
-          <th></th>
-          <td></td>
+          <th><%= f.label :商品画像 %></th>
+          <th><%= f.file_field :image, accept: "image" %></th>
         </div>
       </tr>
       <tr>
@@ -17,7 +17,7 @@
       <tr>
         <div>
           <th><%= f.label :商品説明 %></th>
-          <td><%= f.text_area :introduction, placeholder:"商品紹介" %></td>
+          <td><%= f.text_area :introduction, placeholder:"商品説明" %></td>
         </div>
       </tr>
       <tr>

@@ -2,20 +2,20 @@
 
 <%= form_with model: @customer,url: customers_path,method: :patch do |f| %>
   <div>
-    <label for="inputlast_name">名</label>
+    <label for="inputlast_name">姓</label>
     <%= f.text_field :last_name, autofocus: true, id:"inputlast_name" %>
   </div>
   <div>
-    <label for="inputfirst_name">姓</label>
+    <label for="inputfirst_name">名</label>
     <%= f.text_field :first_name, autofocus: true, id:"inputfirst_name" %>
-  </div>
-  <div>
-    <label for="inputlast_name_kana">名(カナ)</label>
-    <%= f.text_field :last_name_kana, autofocus: true, id:"inputlast_name_kana" %>
   </div>
   <div>
     <label for="inputlast_name_kana">姓(カナ)</label>
     <%= f.text_field :last_name_kana, autofocus: true, id:"inputlast_name_kana" %>
+  </div>
+  <div>
+    <label for="inputfirst_name_kana">名(カナ)</label>
+    <%= f.text_field :first_name_kana, autofocus: true, id:"inputfirst_name_kana" %>
   </div>
   <div>
     <label for="inputpostal_code">郵便番号</label>
