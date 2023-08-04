@@ -1,8 +1,12 @@
 @use '~bootstrap/scss/bootstrap';
-
-
 @import url('https://fonts.google.com/specimen/Zen+Kurenaido?subset=japanese');
 
 body {
   font-family: 'Zen Kurenaido', cursive;
+}
+
+.background-image1 {
+  background-image: url('/images/image1.jpg');
+  background-size: cover;
+  background-position: center;
 }

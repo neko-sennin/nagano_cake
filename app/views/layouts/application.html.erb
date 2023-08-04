@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <nav class="navbar navbar-dark navbar-expand-lg bg-light">
         <div class="container">
           <div class="navbar-brand">
             <%= link_to "nagano-cake", root_path, class:"nav-link text-dark" %>
@@ -37,29 +37,29 @@
                 </li>
               <% elsif customer_signed_in? %>
                 <li class="nav-link">
-                  <%= link_to "マイページ", customers_my_page_path %>
+                  <%= link_to "My page", customers_my_page_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "商品一覧", items_path %>
+                  <%= link_to "Items", items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "カート", cart_items_path %>
+                  <%= link_to "Cart", cart_items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+                  <%= link_to "Log out", destroy_customer_session_path, method: :delete, class:"nav-link text-dark"  %>
                 </li>
               <% else %>
                 <li class="nav-link">
-                  <%= link_to "About", about_path %>
+                  <%= link_to "About", about_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "商品一覧", items_path %>
+                  <%= link_to "Items", items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "新規登録", new_customer_registration_path %>
+                  <%= link_to "Sign up", new_customer_registration_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "ログイン", customer_session_path %>
+                  <%= link_to "Sign in", customer_session_path, class:"nav-link text-dark"  %>
                 </li>
               <% end %>
             </ul>
@@ -77,7 +77,7 @@
     </main>
     
     <footer>
-      <div class="container mt-5, bg-light">
+      <div class="container, bg-light">
         <div class="row">
           <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
