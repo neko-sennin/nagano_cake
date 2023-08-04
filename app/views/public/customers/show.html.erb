@@ -1,6 +1,6 @@
 <div class="container">
   
-  <div class="tit">
+  <div class="title">
     <h2>My page</h2>
   </div>
   
@@ -33,9 +33,11 @@
   </tr>
 </table>
 
-<%= link_to "一覧", orders_path %> |
-<%= link_to "編集", edit_customers_path %>
-
+    <div>
+      <%= link_to "一覧", orders_path, class:"text-dark" %> |
+      <%= link_to "編集", edit_customers_path, class:"text-dark" %>
+    </div>
+    
   </div>
 </div>
 

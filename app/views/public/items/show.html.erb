@@ -1,19 +1,26 @@
-<div>
-  <% if @item.image.attached? %>
-    <%= image_tag @item.image, size: "300x300" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "300x300" %>
-  <% end %>
-</div>
-<div>
-  <h2><strong><%= @item.name %></strong></h2>
-  <h4><%= @item.introduction %></h4>
-  <h4>¥<%= @item.price %>(税込)</h4>
-  <h4>
-  <%= form_with model: @cart_item, local: true do |f| %>
-    <%= f.hidden_field @item_id, :value => @item_id %>
-    <%= f.select :amount, *[1..10] %>
-    <%= f.submit "カートに入れる" %>
-  <% end %>
-  </h4>
+<div class="container mt-5 mb-5">
+  <div class="row text-center text-xs-center text-sm-left text-md-left">
+    
+    <div class="col-xs-12 col-sm-6 col-md-6 mx-auto text-right">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x300", class:"rounded" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x300", class:"rounded" %>
+      <% end %>
+    </div>
+  
+    <div class="col-xs-12 col-sm-6 col-md-6 item-details mx-auto">
+      <h2><strong><%= @item.name %></strong></h2>
+      <h4><%= @item.introduction %></h4>
+      <h4>¥<%= @item.price %>(税込)</h4>
+      <h4>
+        <%= form_with model: @cart_item, local: true do |f| %>
+          <%= f.hidden_field @item_id, :value => @item_id %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.submit "カートに入れる" %>
+        <% end %>
+       </h4>
+    </div>
+  
+  </div>
 </div>

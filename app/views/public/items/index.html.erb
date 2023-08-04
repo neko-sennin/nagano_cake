@@ -1,26 +1,40 @@
-<h2>商品一覧</h2>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>Items</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-10 px-sm-0 mx-auto mb-5">
+      <table class="table text-center admin-items" >
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        
+        <% @items.each do |item| %>
+        <tbody>
+          <tr>
+            <td>
+              <% if item.image.attached? %>
+               <%= image_tag item.image, size: "200x200", class:"rounded" %>
+              <% else %>
+                <%= image_tag 'no_image', size: "200x200", class:"rounded" %>
+              <% end %>
+            </td>
+            <td><%= link_to item.name, item_path(item.id), class:"text-dark" %></td>
+            <td>¥<%= item.price %>(税抜)</td>
+          </tr>
+        </tbody>
+        <% end %>
+        
+      </table>
+    </div>
+  </div>
 
-<% @items.each do |item| %>
-  <table>
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <% if item.image.attached? %>
-            <%= image_tag item.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "200x200" %>
-          <% end %>
-        </td>
-        <td><%= link_to item.name, item_path(item.id) %></td>
-        <td><%= item.price %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+</div>

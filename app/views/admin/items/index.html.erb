@@ -22,7 +22,7 @@
             <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
         </td>
-        <td><%= link_to item.name, admin_item_path(item.id) %></td>
+        <td><%= link_to item.name, admin_item_path(item.id), class:"text-dark" %></td>
         <td><%= item.price %></td>
       </tr>
     </tbody>
