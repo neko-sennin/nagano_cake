@@ -5,54 +5,86 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/c913cccd76.js" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <% if admin_signed_in? %>
-        <li>
-          <%= link_to "商品一覧", admin_items_path %>
-        </li>
-        <li>
-          <%= link_to "会員一覧", admin_customers_path %>
-        </li>
-        <li>
-          <%= link_to "注文履歴一覧", admin_orders_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-        </li>
-      <% elsif customer_signed_in? %>
-        <li>
-          <%= link_to "マイページ", customers_my_page_path %>
-        </li>
-        <li>
-          <%= link_to "商品一覧", items_path %>
-        </li>
-        <li>
-          <%= link_to "カート", cart_items_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <%= link_to "商品一覧", items_path %>
-        </li>
-        <li>
-          <%= link_to "新規登録", new_customer_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", customer_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <div class="container">
+          <div class="navbar-brand">
+            <%= link_to "nagano-cake", root_path, class:"nav-link text-dark" %>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <li class="nav-link">
+                  <%= link_to "Items", admin_items_path, class:"nav-link text-dark" %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "Users", admin_customers_path, class:"nav-link text-dark" %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "Order history", admin_orders_path, class:"nav-link text-dark" %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link text-dark" %>
+                </li>
+              <% elsif customer_signed_in? %>
+                <li class="nav-link">
+                  <%= link_to "マイページ", customers_my_page_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "商品一覧", items_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "カート", cart_items_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="nav-link">
+                  <%= link_to "About", about_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "商品一覧", items_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "新規登録", new_customer_registration_path %>
+                </li>
+                <li class="nav-link">
+                  <%= link_to "ログイン", customer_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <%= yield %>
+    
+    <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: message_type %>
+    <% end %>
+    
+    <main>
+      <%= yield %>
+    </main>
+    
+    <footer>
+      <div class="container mt-5, bg-light">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
   </body>
 </html>
