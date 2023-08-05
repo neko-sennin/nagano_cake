@@ -5,33 +5,32 @@
   </div>
   
   <div class="row">
-  
-<table>
-  <tr>
-    <th>名前</th>
-    <td><%= @customer.last_name + @customer.first_name %></td>
-  </tr>
-  <tr>
-    <th>フリガナ</th>
-    <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
-  </tr>
-  <tr>
-    <th>郵便番号</th>
-    <td><%= @customer.postal_code %></td>
-  </tr>
-  <tr>
-    <th>住所</th>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <th>電話番号</th>
-    <td><%= @customer.telephone_number %></td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @customer.email %></td>
-  </tr>
-</table>
+    <table>
+      <tr>
+        <th>名前</th>
+        <td><%= @customer.last_name + @customer.first_name%></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @customer.telephone_number %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+    </table>
 
     <div>
       <%= link_to "一覧", orders_path, class:"text-dark" %> |
@@ -40,4 +39,3 @@
     
   </div>
 </div>
-

@@ -15,7 +15,7 @@
       <h4>¥<%= @item.price %>(税込)</h4>
       <h4>
         <%= form_with model: @cart_item, local: true do |f| %>
-          <%= f.hidden_field @item_id, :value => @item_id %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.select :amount, *[1..10] %>
           <%= f.submit "カートに入れる" %>
         <% end %>
