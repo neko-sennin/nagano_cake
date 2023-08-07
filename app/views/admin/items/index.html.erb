@@ -15,13 +15,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>
-          <% if item.image.attached? %>
-            <%= image_tag item.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "200x200" %>
-          <% end %>
-        </td>
+        <td><%= image_tag item.get_image(200,200) %></td>
         <td><%= link_to item.name, admin_item_path(item.id), class:"text-dark" %></td>
         <td><%= item.price %></td>
       </tr>

@@ -20,13 +20,7 @@
         <% @items.each do |item| %>
         <tbody>
           <tr>
-            <td>
-              <% if item.image.attached? %>
-               <%= image_tag item.image, size: "200x200", class:"rounded" %>
-              <% else %>
-                <%= image_tag 'no_image', size: "200x200", class:"rounded" %>
-              <% end %>
-            </td>
+            <td><%= image_tag item.get_image(150,150) %></td>
             <td><%= link_to item.name, item_path(item.id), class:"text-dark" %></td>
             <td>¥<%= item.price %>(税抜)</td>
           </tr>
