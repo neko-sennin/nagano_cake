@@ -1,2 +1,36 @@
-<h1>Public::Orders#check</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="container">
+  
+  <div class="row">
+    <h2>注文確認画面</h2>
+  </div>
+  
+  <div class="row">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @order.order_details.each do |order_detail| %>
+          <tr>
+            <td style="word-break:break-all"><%= order_detail.item.name %></td>
+            <td><%= order_detail.price_including_tax %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.amount * order_detail.price_including_tax %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      
+      <table>
+        
+      </table>
+    </div>
+  </div>
+  
+</div>
