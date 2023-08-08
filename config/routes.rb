@@ -25,11 +25,12 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resource :customers, only: [:edit, :update]
     get 'customers/my_page' => 'customers#show'
-    get '/customers/check' => '/customers#check'
+    get '/customers/check' => 'customers#check'
     patch '/customers/withdraw' => 'customers#withdraw'
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:create, :index, :destroy, :update]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    post '/orders/check' => 'orders#check', as:'order_check'
     resources :orders, only: [:new, :create, :index, :show]
   end
   
