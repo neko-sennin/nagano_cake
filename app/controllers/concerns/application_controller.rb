@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   
   before_action :authenticate_admin!, if: :admin_url
   
-  config.i18n.default_locale = :ja
-  
   def admin_url
     request.fullpath.include?("/admin")
   end

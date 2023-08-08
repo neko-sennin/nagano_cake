@@ -30,5 +30,19 @@
       </table>
     </div>
   </div>
+  
+  <h2>Items</h2>
+  <p>ここではさまざまなケーキの紹介をします。</p>
+  <div class="item-box">
+    <% @items.each do |item| %>
+      <div class="item">
+        <%= image_tag item.get_image(150,150) %>
+        <div class="item-body">
+          <h4 class="item-title"><%= link_to item.name, item_path(item.id), class:"text-dark" %></h4>
+          <p class="item-price">¥<%= item.price %>(税抜)</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 </div>
