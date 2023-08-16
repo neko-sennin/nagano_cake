@@ -6,4 +6,12 @@ class Order < ApplicationRecord
   
   enum payment_method: { credit_card: 0, transfer: 1 }
   
+  def order_profile(postal_code, address, name)
+    self.postal_code = postal_code
+    self.address = address
+    self.name = name
+  end
+  
+   cart_item.tax_included_price
+  
 end

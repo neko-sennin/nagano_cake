@@ -1,36 +1,66 @@
 <div class="container">
   
-  <div class="row">
+  <div class="row my-3 col-sm-10 offset-sm-1">
     <h2>注文確認画面</h2>
   </div>
   
   <div class="row">
-    <div>
-      <table>
+    
+    <div class="col-sm-7 offset-sm-1">
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th>商品名</th>
-            <th>単価(税込)</th>
-            <th>数量</th>
-            <th>小計</th>
+            <th class="table-active" style="width:50%">商品名</th>
+            <th class="table-active" style="width:20%">単価(税込)</th>
+            <th class="table-active" style="width:15%">数量</th>
+            <th class="table-active" style="width:15%">小計</th>
           </tr>
         </thead>
         <tbody>
-        <% @order.order_details.each do |order_detail| %>
-          <tr>
-            <td style="word-break:break-all"><%= order_detail.item.name %></td>
-            <td><%= order_detail.price_including_tax %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= order_detail.amount * order_detail.price_including_tax %></td>
-          </tr>
-        <% end %>
+          <% @total_amount = 0 %>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td style="word-break:break-all"><%= cart_item.item.name %></td>
+              <td><%= cart_item.tax_included_price %></td>
+              <td><%= cart_item.amount %></td>
+              <td><%= cart_item.amount * order_detail.price_including_tax %></td>
+            </tr>
+             <% @total_amount += amount %>
+          <% end %>
         </tbody>
       </table>
-      
-      <table>
-        
+    </div>
+    
+    <div class="col-sm-7 offset-sm-1">
+      <table class="table table-borderless">
+        <tr>
+          <th>支払い方法</th>
+          <td><%= @order.payment_option %></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td><%= "〒#{@order.postcode} #{@order.address} #{@order.name}" %></td>
+        </tr>
       </table>
     </div>
+      
+    <div class="col-sm-3">
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-active" style="width:50%">送料</th>
+          <td>800</td>
+        </tr>
+        <tr>
+          <th class="table-active" style="width:50%">商品合計</th>
+          <td><%= @total_amount %></td>
+        </tr>
+        <tr>
+          <th class="table-active" style="width:50%">請求合計</th>
+          <td><%= (@total_amount = 800 + @total_amount) %></td>
+        </tr>
+      </table>
+    </div>
+      
   </div>
   
 </div>

@@ -5,7 +5,24 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
-    
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @order.postage = 800
+    if @order.save
+       @cart_items = CartItem.where(customer_id: current_customer.id)
+      @cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
+        order_detail.order_id = @order.id
+        order_detail.item_id = cart_item.item_id
+        order_detail.amount = cart_item.amount
+        order_detail.tax_included_price = change_tax_excluding_price(cart_item.item.tax_excluding_price)
+        if order_detail.save
+          @cart_items.destroy_all
+        end
+      end
+      redirect_to orders_thanks_path
+    else
+    end
   end
 
   def index
@@ -17,16 +34,22 @@ class Public::OrdersController < ApplicationController
   end
   
   def check
+    @order = Order.new
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    
+    @order = current_customer.orders.new(order_params)
+    if params[:order][:address_option] == "0"
+      @order.order_profile(current_customer.postal_code, current_customer.address, current_customer.last_name+current_customer.first_name)
+    elsif params[:order][:address_option] == "1"
+      @order.order_profile(params[:order][:postal_code], params[:order][:address], params[:order][:name])
+    end
+    unless @order.valid?
+      flash[:danger] = "お届け先の内容に不備があります"
+      redirect_back(fallback_location: root_path)
+    end
   end
   
   def thanks
-    
-  
-  def confirm
-    @order = Order.new(order_params)
-    @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.address
-    @order.name = current_customer.first_name + current_customer.last_name
   end
  
   private
