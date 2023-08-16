@@ -12,6 +12,4 @@ class Order < ApplicationRecord
     self.name = name
   end
   
-   cart_item.tax_included_price
-  
 end
