@@ -12,4 +12,11 @@ class Order < ApplicationRecord
     self.name = name
   end
   
+  
+  def converting_to_jpy(price)
+    "#{price.to_s(:delimited, delimiter:',')}"
+  end
+  
+  12345678.to_s(:delimited)
+  
 end

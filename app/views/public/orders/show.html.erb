@@ -22,7 +22,7 @@
         </tr>
         <tr>
           <th class="table-active">支払方法</th>
-          <td><%= @order.payment_method %></td>
+          <td><%= Order.payment_methods_i18n[@order.payment_method] %></td>
         </tr>
       </table>
     </div>
@@ -32,15 +32,15 @@
       <table class="table table-bordered">
         <tr>
           <th class="table-active">商品合計</th>
-          <td><%= @order.total_price - 800 %>円</td>
+          <td><%= @order.total_price - 800 %></td>
         </tr>
         <tr>
           <th class="table-active">配送料</th>
-          <td>800円</td>
+          <td>800</td>
         </tr>
         <tr>
           <th class="table-active">ご請求額</th>
-          <td><%= @order.total_price %>円</td>
+          <td><%= @order.total_price %></td>
         </tr>
       </table>
     </div>
@@ -64,7 +64,7 @@
               <td><%= order_detail.item.name %></td>
               <td><%= order_detail.price %></td>
               <td><%= order_detail.amount %></td>
-              <td><%= order_detail.amount * order_detail.price %>円</td>
+              <td><%= order_detail.amount * order_detail.price %></td>
             </tr>
           <% end %>
         </tbody>
