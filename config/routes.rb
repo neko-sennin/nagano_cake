@@ -5,12 +5,10 @@ Rails.application.routes.draw do
   sessions: 'admin/sessions'
   }
   
-  
   devise_for :customer, skip: [:passwords], controllers: {
   registrations: 'public/registrations',
   sessions: 'public/sessions'
   }
-  
   
   namespace :admin do
     get '/' => 'homes#top'
@@ -18,7 +16,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
   end
-  
   
   scope module: :public do
     root 'homes#top'
@@ -32,8 +29,9 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     post '/orders/check' => 'orders#check', as:'order_check'
     get "/orders/thanks" => "orders#thanks"
-    #resources :orders, only: [:new, :create, :index, :show]
     resources :orders, except: [:edit, :update, :destroy]
+    # ↕ 
+    #resources :orders, only: [:new, :create, :index, :show]
   end
   
   
