@@ -1,25 +1,37 @@
-<h2>商品詳細</h2>
-
-<table>
-  <tr>
+<div class="container">
+  
+  <div class="row mt-3">
+    <div class="col-sm-8">
+      <h2 class="table-active text-center" style="width:25%">商品詳細</h2>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
     <% if @item.image.attached? %>
-      <%= image_tag @item.image, size: "300x300" %>
+      <%= image_tag @item.image, size: "250x250" %>
     <% else %>
-      <%= image_tag 'no_image', size: "300x300" %>
+      <%= image_tag 'no_image', size: "250x250" %>
     <% end %>
-  </tr>
-  <tr>
-    <th>商品名</th>
-    <td><%= @item.name %></td>
-  </tr>
-  <tr>
-    <th>商品説明</th>
-    <td><%= @item.introduction %></td>
-  </tr>
-  <tr>
-    <th>税込価格</th>
-    <td><%= @item.price %></td>
-  </tr>
-</table>
-
-<%= link_to "編集する", edit_admin_item_path %>
+    <div class="col-xs-12 col-sm-3 col-md-7 mx-auto">
+      <table class="table table-lg">
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <th>税込価格<br>(税抜価格)</th>
+          <td>
+            <%= @item.price %>
+            (<%= @item.tax_included_price %>)円
+          </td>
+        </tr>
+      </table>
+      <%= link_to "編集する", edit_admin_item_path, class: "btn btn-success" %>
+    </div>
+  </div>
+  
+</div>
