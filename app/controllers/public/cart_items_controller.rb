@@ -12,16 +12,16 @@ class Public::CartItemsController < ApplicationController
     if @cart_item
       @cart_item.amount += params[:cart_item][:amount].to_i
       @cart_item.save
-      flash[:success] = "カートに存在済のアイテムです"
+      flash[:success] = "カートに存在するアイテムです。"
       redirect_to cart_items_path
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
       if @cart_item.save
-        flash[:success] = "カートに追加しました"
+        flash[:success] = "カートに追加しました。"
         redirect_to cart_items_path
       else
-        flash[:danger] = "予期せぬエラーが発生しました"
+        flash[:danger] = "予期せぬエラーが発生しました。"
         redirect_back(fallback_location: root_path)
       end
     end
@@ -30,10 +30,10 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     if @cart_item.update(cart_item_params)
-      flash[:success] = "個数を変更しました"
+      flash[:success] = "個数を変更しました。"
       redirect_to cart_items_path
     else
-      flash[:danger] = "正しい個数を入力してください"
+      flash[:danger] = "正しい個数を入力してください。"
       redirect_to cart_items_path
     end
   end
@@ -47,7 +47,7 @@ class Public::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    flash[:success] = "選択いただいた商品を削除しました。"
+    flash[:success] = "選択された商品を削除しました。"
     redirect_to cart_items_path
   end
 

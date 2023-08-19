@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     get '/customers/check' => 'customers#check'
     patch '/customers/withdraw' => 'customers#withdraw'
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:create, :index, :destroy, :update]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:create, :index, :destroy, :update]
     post '/orders/check' => 'orders#check', as:'order_check'
     get "/orders/thanks" => "orders#thanks"
     resources :orders, except: [:edit, :update, :destroy]

@@ -43,9 +43,9 @@
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td class="align-middle"><%= order_detail.item.name %></td>
-            <td class="align-middle"><%= order_detail.item.tax_included_price %></td>
+            <td class="align-middle"><%= order_detail.item.tax_included_price.to_s(:delimited) %></td>
             <td class="align-middle"><%= order_detail.amount %></td>
-            <td class="align-middle"><%= order_detail.item.tax_included_price * order_detail.amount %></td>
+            <td class="align-middle"><%= (order_detail.item.tax_included_price * order_detail.amount).to_s(:delimited) %></td>
           </tr>
           <% end %>
         </tbody>
@@ -55,7 +55,7 @@
       <table>
         <tr>
           <th>商品合計</th>
-          <td><%= @order.total_price - 800 %>円</td>
+          <td><%= (@order.total_price - 800).to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <th>送料</th>

@@ -4,10 +4,10 @@
     <div class="col-sm-10 px-sm-0 mx-auto">
       <h2 class="table-active text-center" style="width:25%">注文情報入力</h2>
       <%= form_with model: @order, url:order_check_path, local:true do |f| %>
-      <h4 class="mt-2"><b>支払方法</b></h4>
+      <h4 class="mt-2"><strong>支払方法</strong></h4>
       <%= f.radio_button :payment_option, 0, checked: true, class: "ml-4" %>クレジットカード<br>
       <%= f.radio_button :payment_option, 1, class: "ml-4" %>銀行振込
-      <h4 class="mt-2"><b>お届け先</b></h4>
+      <h4 class="mt-2"><strong>お届け先</strong></h4>
       <%= f.radio_button :address_option, 0, checked: true, class: "ml-4" %>ご自身の住所<br>
       <div class="ml-5">
         <%= "〒#{current_customer.postal_code} #{current_customer.address}" %><br>
@@ -28,7 +28,9 @@
           <td><%= f.text_field :name, placeholder: "令和道子" %></td>
         </tr>
       </table>
-      <div class="text-center mt-3"><%= f.submit "確認画面へ進む", class: "btn btn-primary" %></div>
+      <div class="row">
+        <div class="col-sm-2 px-sm-0 mx-auto my-3"><%= f.submit "確認画面へ進む", class: "btn btn-primary" %></div>
+      </div>
       <% end %>
     </div>
   </div>
