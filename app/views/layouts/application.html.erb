@@ -24,42 +24,42 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
                 <li class="nav-link">
-                  <%= link_to "Items", admin_items_path, class:"nav-link text-dark" %>
+                  <%= link_to "商品一覧", admin_items_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Users", admin_customers_path, class:"nav-link text-dark" %>
+                  <%= link_to "会員一覧", admin_customers_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Order history", admin_orders_path, class:"nav-link text-dark" %>
+                  <%= link_to "注文履歴一覧", admin_orders_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link text-dark" %>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link text-dark" %>
                 </li>
               <% elsif customer_signed_in? %>
                 <li class="nav-link">
-                  <%= link_to "My page", customers_my_page_path, class:"nav-link text-dark"  %>
+                  <%= link_to "マイページ", customers_my_page_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Items", items_path, class:"nav-link text-dark"  %>
+                  <%= link_to "商品一覧", items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Cart", cart_items_path, class:"nav-link text-dark"  %>
+                  <%= link_to "カート", cart_items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Log out", destroy_customer_session_path, method: :delete, class:"nav-link text-dark"  %>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"nav-link text-dark"  %>
                 </li>
               <% else %>
                 <li class="nav-link">
                   <%= link_to "About", about_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Items", items_path, class:"nav-link text-dark"  %>
+                  <%= link_to "商品一覧", items_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Sign up", new_customer_registration_path, class:"nav-link text-dark"  %>
+                  <%= link_to "新規登録", new_customer_registration_path, class:"nav-link text-dark"  %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "Sign in", customer_session_path, class:"nav-link text-dark"  %>
+                  <%= link_to "ログイン", customer_session_path, class:"nav-link text-dark"  %>
                 </li>
               <% end %>
             </ul>

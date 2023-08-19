@@ -20,7 +20,7 @@
         <% @order.each do |order| %>
         <tbody>
           <tr>
-            <td></td>
+            <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order.id), class:"text-dark"  %></td>
             <td><%= order.name %></td>
             <td></td>
           </tr>

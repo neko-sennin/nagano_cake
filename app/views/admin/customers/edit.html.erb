@@ -1,39 +1,43 @@
 <div class="container">
   
-  <div class="row my-3">
+  <div class="row my-4">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
       <h2 class="table-active text-center" style="width:55%"><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h2>
     </div>
   </div>
-  <%= form_with model: @customer,url: customers_path,method: :patch do |f| %>
-    <div class="row">
+  <%= form_with model: @customer,url: admin_customer_path,method: :patch do |f| %>
+    <div class="row my-2">
+      <div class="col-3 offset-md-1"><%= f.label "会員ID" %></div>
+      <div class="col-3"><%= @customer.id %></div>
+    </div>
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "氏名" %></div>
-      <div class="col-1"><%= f.text_field :last_name, autofocus: true, id:"inputlast_name" %></div>
-      <div class="col-2"><%= f.text_field :first_name, autofocus: true, id:"inputfirst_name" %></div>
+      <div class="col-3"><%= f.text_field :last_name, autofocus: true, class: "form-control" %></div>
+      <div class="col-3"><%= f.text_field :first_name, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "フリガナ" %></div>
-      <div class="col-1"><%= f.text_field :last_name_kana, autofocus: true, id:"inputlast_name_kana"  %></div>
-      <div class="col-2"><%= f.text_field :first_name_kana, autofocus: true, id:"inputfirst_name_kana" %></div>
+      <div class="col-3"><%= f.text_field :last_name_kana, autofocus: true, class: "form-control" %></div>
+      <div class="col-3"><%= f.text_field :first_name_kana, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "郵便番号" %></div>
-      <div class="col-3"><%= f.text_field :postal_code, autofocus: true, id:"inputpostal_code" %></div>
+      <div class="col-3"><%= f.text_field :postal_code, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "住所" %></div>
-      <div class="col-3"><%= f.text_field :address, autofocus: true, id:"addressl", size: 50 %></div>
+      <div class="col-5"><%= f.text_field :address, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "電話番号" %></div>
-      <div class="col-3"><%= f.text_field :telephone_number, autofocus: true, id:"inputtelephone_number" %></div>
+      <div class="col-3"><%= f.text_field :telephone_number, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
+    <div class="row my-2">
       <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
-      <div class="col-3"><%= f.email_field :email, autofocus: true, id:"email" %></div>
+      <div class="col-3"><%= f.email_field :email, autofocus: true, class: "form-control" %></div>
     </div>
-    <div class="row">
-      <div class="col-2 offset-md-1">
+    <div class="row my-4">
+      <div class="col-10 text-center">
         <%= f.submit "変更を保存", class:"btn btn-success"%>
       </div>
     </div>
