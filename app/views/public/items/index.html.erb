@@ -1,48 +1,21 @@
 <div class="container">
   
-  <div class="row">
-    <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2>Items</h2>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-sm-10 px-sm-0 mx-auto mb-5">
-      <table class="table text-center admin-items" >
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        
-        <% @items.each do |item| %>
-        <tbody>
-          <tr>
-            <td><%= image_tag item.get_image(150,150) %></td>
-            <td><%= link_to item.name, item_path(item.id), class:"text-dark" %></td>
-            <td>¥<%= item.price %>(税抜)</td>
-          </tr>
-        </tbody>
-        <% end %>
-        
-      </table>
-    </div>
-  </div>
-  
-  <h2>Items</h2>
-  <p>ここではさまざまなケーキの紹介をします。</p>
-  <div class="item-box">
-    <% @items.each do |item| %>
-      <div class="item">
-        <%= image_tag item.get_image(150,150) %>
-        <div class="item-body">
-          <h4 class="item-title"><%= link_to item.name, item_path(item.id), class:"text-dark" %></h4>
-          <p class="item-price">¥<%= item.price %>(税抜)</p>
+  <div class="row my-4">
+    <div class="flex_text-box">
+      <h2>商品一覧</h2>
+      <div class="item-box my-4" style="display:flex">
+      <% @items.each do |item| %>
+        <div class="item">
+          <%= image_tag item.get_image(150,150) %>
+          <div class="item-body">
+            <h4 class="item-title"><%= link_to item.name, item_path(item.id), class:"text-dark" %></h4>
+            <p class="item-price">¥<%= item.price.to_s(:delimited) %>(税抜)</p>
+          </div>
         </div>
+      <% end %>
+      <%= paginate @items %>
       </div>
-    <% end %>
+    </div>
   </div>
-
+  
 </div>
