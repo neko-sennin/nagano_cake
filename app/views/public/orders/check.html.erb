@@ -47,11 +47,13 @@
         </tr>
         <tr>
           <th class="table-active" style="width:50%">商品合計</th>
-          <td><%= @cart_items.sum(&:subtotal)%></td>
+          <td>
+            <%= number_with_delimiter(@cart_items.sum(&:subtotal)) %>
+           </td>
         </tr>
         <tr>
           <th class="table-active" style="width:50%">請求合計</th>
-          <td><%= 800 + @cart_items.sum(&:subtotal) %></td>
+          <td><%= number_with_delimiter(800 + @cart_items.sum(&:subtotal)) %></td>
         </tr>
       </table>
     </div>
@@ -63,7 +65,7 @@
         <%= f.hidden_field :name, :value => @order.name %>
         <%= f.hidden_field :total_price, :value => 800 + @cart_items.sum(&:subtotal) %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-        <div class="text-center mb-3"><%= f.submit "注文を確定する", class: "btn btn-success" %></div>
+        <div style="position: relative; left: 500px;"><%= f.submit "注文を確定する", class: "btn btn-success" %></div>
       <% end %>
     </div>
   </div>
