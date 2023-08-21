@@ -1,14 +1,40 @@
-<!--<div class="background-image1"></div>-->
+<div class="background-image1"></div>
 
 <div class="container">
     
-  <div class="mb-5 mx-auto text-center">
+  <div class="mb-3 mx-auto text-center">
     <p style="padding-top:30px;">
       ようこそ、ながのCAKEへ！<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
       会員でない方も商品の閲覧はできますが、<br>
       購入には会員登録が必要になります。
     </p>
+  </div>
+  
+  <div class="mt-4">
+    <div class="">
+      <h2><strong>新着商品</strong></h2>
+      <div class="row mt-4">
+        <% @items.each do |item| %>
+        <div class="item col-lg-3 mt-4">
+          <%= image_tag item.get_image(150,150) %>
+          <div class="item-body">
+            <h4 class="item-title"><%= link_to item.name, item_path(item.id), class: "text-dark" %></h4>
+            <p class="item-price">¥<%= item.price.to_s(:delimited) %>(税抜)</p>
+          </div>
+        </div>
+        <% end %>
+
+        
+        </div>
+      </div>
+    </div>
+    <div class="row">
+          <div class="col-9"></div>
+          <div class="col-3 mb-5">
+            <%= link_to "全ての商品を見る >", items_path %>
+          </div>
+        </div>
   </div>
   
 </div>

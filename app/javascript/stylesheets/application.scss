@@ -29,11 +29,11 @@ h4 {
 }
 
 .item {
-  margin: 0 auto 50px;
+  margin: 0 auto 15px;
   max-width: 350px;
-  height: 350px;
+  height: auto;
 }
 
-.item-body {
-  text-align: left;
+.pagination span {
+  padding-left: 5px;
 }

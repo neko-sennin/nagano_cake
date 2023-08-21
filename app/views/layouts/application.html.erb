@@ -17,6 +17,9 @@
           <div class="navbar-brand">
             <%= link_to "nagano-cake", root_path, class:"nav-link text-dark" %>
           </div>
+          <% if customer_signed_in? %>
+            <span class="text-center">ようこそ、<%= current_customer.last_name %>さん！</span>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

@@ -10,14 +10,16 @@
     </div>
   
     <div class="col-xs-12 col-sm-6 col-md-6 item-details mx-auto">
-      <h2><strong><%= @item.name %></strong></h2>
+      <h2 class="my-3"><strong><%= @item.name %></strong></h2>
       <h4><%= @item.introduction %></h4>
-      <h4>¥<%= @item.price %>(税込)</h4>
+      <h4 class="my-5">¥<%= @item.price.to_s(:delimited) %><span style="font-size: 15px;"> (税込)</span></h4>
       <h4>
         <%= form_with model: @cart_item, local: true do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.select :amount, *[1..10] %>
-          <%= f.submit "カートに入れる" %>
+          <div class="text-center my-3">
+            <%= f.select :amount, *[1..30], { include_blank: '個数選択'}, required: true %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          </div>
         <% end %>
       </h4>
     </div>

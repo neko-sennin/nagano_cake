@@ -39,14 +39,14 @@
                 <%= image_tag cart_item.item.get_image(100,100) %>
                 <%= cart_item.item.name %>
               </td>
-              <td>¥<%= cart_item.item.tax_included_price %></td>
+              <td>¥<%= cart_item.item.tax_included_price.to_s(:delimited) %></td>
               <td>
                 <%= form_with model: cart_item, local: true do |f| %>
-                  <%= f.number_field :amount, in: 1..10, step: 1 %>
+                  <%= f.number_field :amount, in: 1..30, step: 1 %>
                   <%= f.submit "変更", class: "btn btn-success" %>
                 <% end %>
               </td>
-              <td>¥<%= amount = cart_item.item.tax_included_price * cart_item.amount %></td>
+              <td>¥<%= (amount = cart_item.item.tax_included_price * cart_item.amount).to_s(:delimited) %></td>
               <td>
                 <%= link_to "削除する", cart_item_path(cart_item), class: "btn btn-danger", id: "cart-item-delete-#{i}", method: :delete, data: { confirm: '削除しますか？' } %>
               </td>
