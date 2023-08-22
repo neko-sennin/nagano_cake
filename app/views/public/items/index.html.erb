@@ -6,18 +6,18 @@
       <div class="row my-4">
         <% @items.each do |item| %>
         <div class="item col-lg-3 my-4">
-          <%= image_tag item.get_image(150,150) %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image(150,150) %>
+          <% end %>
           <div class="item-body">
-            <h4 class="item-title"><%= link_to item.name, item_path(item.id), class:"text-dark" %></h4>
+            <h4 class="item-title"><%= item.name %></h4>
             <p class="item-price">¥<%= item.price.to_s(:delimited) %>(税抜)</p>
           </div>
         </div>
         <% end %>
-        <div class="row mx-auto">
-          <%= paginate @items %>
-        </div>
       </div>
-    </div>
+    </div> 
+    <div class="row mx-auto mb-5"><%= paginate @items %></div>
   </div>
   
 </div>
