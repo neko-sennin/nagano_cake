@@ -1,7 +1,8 @@
 class Admin::OrdersController < ApplicationController
   
   def index
-    @order = Order.all
+    @order = Order.page(params[:page])
+    @order_all = Order.all
   end
   
   def show
@@ -21,5 +22,6 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_price)
   end
+    
   
 end
