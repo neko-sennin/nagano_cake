@@ -9,12 +9,12 @@
   <div class="row mt-3">
     <div class="col-sm-10 px-sm-0 mx-auto mb-5">
       <table class="table text-center mb-5">
-        <thead class="table-light">
-          <!--↑この指定が効かない-->
+        <thead class="table">
           <tr>
             <th class="table-active" style="width:15%">会員ID</th>
-            <th class="table-active" style="width:35%">氏名</th>
-            <th class="table-active" style="width:50%">メールアドレス</th>
+            <th class="table-active" style="width:20%">氏名</th>
+            <th class="table-active" style="width:35%">メールアドレス</th>
+            <th class="table-active" style="width:30%">ステータス</th>
           </tr>
         </thead>
         <% @customers.each do |customer| %>
@@ -23,6 +23,13 @@
             <td><%= customer.id %></td>
             <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id), class:"text-dark" %></td>
             <td><%= customer.email %></td>
+            <td>
+              <% if customer.is_deleted %>
+                <div class="text-secondary"><strong>退会</strong></div>
+              <% else %>
+                <div class="text-success"><strong>有効</strong></div>
+              <% end %>
+            </td>
           </tr>
         </tbody>
         <% end %>

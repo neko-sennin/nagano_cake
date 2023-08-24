@@ -36,6 +36,15 @@
       <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
       <div class="col-3"><%= f.email_field :email, autofocus: true, class: "form-control" %></div>
     </div>
+    <div class="row my-2">
+      <div class="col-3 offset-md-1"><%= f.label "会員ステータス" %></div>
+      <div class="col-3">
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, "有効", value: :false, style: "display: inline-block;" %>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+      </div>
+    </div>
     <div class="row my-4">
       <div class="col-10 text-center">
         <%= f.submit "変更を保存", class:"btn btn-success"%>

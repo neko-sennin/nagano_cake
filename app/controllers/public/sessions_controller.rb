@@ -18,6 +18,10 @@ class Public::SessionsController < Devise::SessionsController
       flash[:notice] = "該当するユーザーが見つかりません"
     end
   end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
   
   # before_action :configure_sign_in_params, only: [:create]
 
